@@ -44,12 +44,28 @@ export default function Scoreboard() {
     set_sort_by(event.target.value);
   };
 
+  const resetScore = () => {
+    const players_reset = players.map((player) => {
+      if (player) {
+        return {
+          ...player,
+          score: player.score - player.score,
+        };
+      } else {
+        return player;
+      }
+    });
+    set_players(players_reset);
+  };
   return (
     <div className="Scoreboard">
       <h1>Scoreboard</h1>
 
       <p>
-        Sort order:{" "}
+        <div>
+          <button onClick={resetScore}>Reset</button>
+        </div>
+        Sort order:
         <select onChange={change_sorting}>
           <option value="score">Sort by score</option>
           <option value="name">Sort by name</option>

@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Title() {
-  return <h1>This is a title</h1>;
+  return <h1>Epstein didn't kill himself</h1>;
 }

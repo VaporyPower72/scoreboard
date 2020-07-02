@@ -10,7 +10,7 @@ export default function Player(props) {
       {" "}
       <li className="Player">
         {props.name} (Score: {props.score})
-        <button onClick={onClickIncrement}>increment</button>
+        <button onClick={onClickIncrement}>Increment</button>
       </li>
     </ul>
   );
