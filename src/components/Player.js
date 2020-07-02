@@ -5,7 +5,7 @@ export default function Player(props) {
     <ul>
       {" "}
       <li className="Player">
-        {props.name} {props.score}
+        {props.name} (Score: {props.score})
       </li>
     </ul>
   );
