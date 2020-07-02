@@ -17,13 +17,52 @@ export default function Scoreboard() {
     { id: 4, name: "Lisa", score: 42 },
   ]);
 
-  const players_sorted = [...players].sort(compare_name);
+  const [sort_by, set_sort_by] = useState("score");
+
+  const sortFunction = sort_by === "score" ? compare_score : compare_name;
+
+  const players_sorted = [...players].sort(sortFunction);
+
+  const incrementScore = (id) => {
+    console.log(id);
+    const new_players_array = players.map((player) => {
+      if (player.id === id) {
+        return {
+          ...player,
+
+          score: player.score + 1,
+        };
+      } else {
+        return player;
+      }
+    });
+    set_players(new_players_array);
+  };
+
+  const change_sorting = (event) => {
+    console.log("new sort order:", event.target.value);
+    set_sort_by(event.target.value);
+  };
 
   return (
     <div className="Scoreboard">
       <h1>Scoreboard</h1>
+
+      <p>
+        Sort order:{" "}
+        <select onChange={change_sorting}>
+          <option value="score">Sort by score</option>
+          <option value="name">Sort by name</option>
+        </select>
+      </p>
+
       {players_sorted.map((player) => (
-        <Player name={player.name} score={player.score} />
+        <Player
+          id={player.id}
+          name={player.name}
+          score={player.score}
+          incrementScore={incrementScore}
+        />
       ))}
     </div>
   );
