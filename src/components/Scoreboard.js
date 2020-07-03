@@ -57,6 +57,14 @@ export default function Scoreboard() {
     });
     set_players(players_reset);
   };
+
+  const addPlayer = (name) => {
+    console.log("Let's add a new player with the name:", name);
+    const newPlayer = { name: name, score: 0, id: players.length + 1 };
+    const newPlayers = [...players, newPlayer];
+    set_players(newPlayers);
+  };
+
   return (
     <div className="Scoreboard">
       <h1>Scoreboard</h1>
@@ -85,6 +93,7 @@ export default function Scoreboard() {
         addPlayer={(name) => {
           console.log("Let's add a new player with the name:", name);
         }}
+        addPlayer={addPlayer}
       />
     </div>
   );
