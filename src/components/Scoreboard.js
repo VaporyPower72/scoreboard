@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Player from "./Player";
-
+import AddPlayerForm from "./AddPlayerForm";
 function compare_name(player_a, player_b) {
   return player_a.name.localeCompare(player_b.name);
 }
@@ -80,6 +80,12 @@ export default function Scoreboard() {
           incrementScore={incrementScore}
         />
       ))}
+
+      <AddPlayerForm
+        addPlayer={(name) => {
+          console.log("Let's add a new player with the name:", name);
+        }}
+      />
     </div>
   );
 }

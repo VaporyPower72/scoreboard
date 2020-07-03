@@ -9,7 +9,6 @@ function App() {
       <Title />
       <main>
         <Scoreboard />
-        <AddPlayerForm />
       </main>
     </div>
   );
