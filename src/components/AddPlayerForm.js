@@ -5,6 +5,7 @@ export default function AddPlayerForm(props) {
 
   const addPlayerButton = () => {
     props.addPlayer(name);
+    set_name("");
   };
 
   return (
